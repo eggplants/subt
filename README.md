@@ -47,7 +47,7 @@ pipx install subt
 <!-- markdownlint-disable MD033 -->
 <details>
 
-<summary> Generate `.srt` file from [Me at the zoo](https://www.youtube.com/watch?v=jNQXAC9IVRw) </summary>
+<summary> (Optional) Generate an example <code>.srt</code> file from <a href="https://www.youtube.com/watch?v=jNQXAC9IVRw">Me at the zoo</a> </summary>
 
 ```shellsession
 $ yt-dlp 'https://www.youtube.com/watch?v=jNQXAC9IVRw'
@@ -72,6 +72,8 @@ And that's pretty much all there is to say.
 
 </details>
 <!-- markdownlint-enable MD033 -->
+
+Then:
 
 ```shellsession
 $ subt 'Me at the zoo [jNQXAC9IVRw].srt' -d ja
