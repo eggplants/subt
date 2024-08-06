@@ -2,7 +2,7 @@ ci:
   autoupdate_schedule: monthly
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.5.0
+  rev: v4.6.0
   hooks:
   - id: check-added-large-files
     args: [--maxkb=2000]
@@ -21,25 +21,25 @@ repos:
   - id: trailing-whitespace
     files: \.(py|sh|rst|yml|yaml)$
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.13.0
+  rev: v2.14.0
   hooks:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
 - repo: https://github.com/tox-dev/pyproject-fmt
-  rev: 1.7.0
+  rev: 2.2.1
   hooks:
   - id: pyproject-fmt
 - repo: https://github.com/psf/black
-  rev: 24.3.0
+  rev: 24.8.0
   hooks:
   - id: black
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.3.4
+  rev: v0.5.6
   hooks:
   - id: ruff
     args: [--fix]
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: v1.9.0
+  rev: v1.11.1
   hooks:
   - id: mypy
     files: ^subt/
@@ -48,7 +48,7 @@ repos:
     - pysubs2
     - translatepy
 - repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: v0.39.0
+  rev: v0.41.0
   hooks:
   - id: markdownlint-fix
     exclude: ^.github/PULL_REQUEST_TEMPLATE.md
