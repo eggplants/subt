@@ -25,9 +25,9 @@
 )
 
 [![ghcr latest](
-  <https://ghcr-badge.deta.dev/eggplants/subt/latest_tag?trim=major&label=latest>
+  <https://ghcr-badge.egpl.dev/eggplants/subt/latest_tag?trim=major&label=latest>
  ) ![ghcr size](
-  <https://ghcr-badge.deta.dev/eggplants/subt/size>
+  <https://ghcr-badge.egpl.dev/eggplants/subt/size>
 )](
   <https://github.com/eggplants/subt/pkgs/container/subt>
 )
