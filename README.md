@@ -52,7 +52,7 @@ pipx install subt
 ```shellsession
 $ yt-dlp 'https://www.youtube.com/watch?v=jNQXAC9IVRw'
 $ whisper-ctranslate2 'Me at the zoo [jNQXAC9IVRw].mp4'
-$ cat 
+$ cat 'Me at the zoo [jNQXAC9IVRw].srt'
 1
 00:00:00,000 --> 00:00:05,000
 Alright, so here we are, one of the elephants.
