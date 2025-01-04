@@ -10,7 +10,7 @@ import argparse
 from importlib import metadata
 from pathlib import Path
 
-import pysubs2  # type: ignore[import-untyped]
+import pysubs2
 from translatepy import language  # type: ignore[import-untyped]
 from translatepy.translators import (  # type: ignore[import-untyped]
     BingTranslate,
@@ -103,7 +103,7 @@ def main(test_args: list[str] | None = None) -> None:
     translator = __TRANSLATORS[args.service]()
 
     sub_file_path = Path(args.sub_file)
-    subs = pysubs2.load(sub_file_path, encoding="utf-8")
+    subs = pysubs2.load(str(sub_file_path), encoding="utf-8")
     for sub in subs:
         sub.text = translator.translate(
             sub.text,
