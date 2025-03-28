@@ -5,19 +5,19 @@
   )](
   <https://badge.fury.io/py/subt>
 ) [![Maintainability](
-  <https://api.codeclimate.com/v1/badges/a41545d7775b010ad9b2/maintainability>
+  <https://qlty.sh/badges/52679a0a-ac9e-4667-9d20-b214d89b6687/maintainability.svg>
   )](
-  <https://codeclimate.com/github/eggplants/subt/maintainability>
+  <https://qlty.sh/gh/eggplants/projects/subt>
 ) [![pre-commit.ci status](
   <https://results.pre-commit.ci/badge/github/eggplants/subt/master.svg>
   )](
   <https://results.pre-commit.ci/latest/github/eggplants/subt/master>
 )
 
-[![Test Coverage](
-  <https://api.codeclimate.com/v1/badges/a41545d7775b010ad9b2/test_coverage>
+[![Code Coverage](
+  <https://qlty.sh/badges/52679a0a-ac9e-4667-9d20-b214d89b6687/test_coverage.svg>
   )](
-  <https://codeclimate.com/github/eggplants/subt/test_coverage>
+  <https://qlty.sh/gh/eggplants/projects/subt>
 ) [![Test](
   <https://github.com/eggplants/subt/actions/workflows/test.yml/badge.svg>
   )](

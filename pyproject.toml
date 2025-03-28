@@ -1,12 +1,9 @@
 [build-system]
-build-backend = "poetry.core.masonry.api"
-requires = [
-  "poetry-core>=2",
-]
+build-backend = "hatchling.build"
+requires = [ "hatchling", "uv-dynamic-versioning" ]
 
 [project]
 name = "subt"
-version = "0.0.1"
 description = "Translate a subtitle file"
 readme = "README.md"
 keywords = [
@@ -14,9 +11,7 @@ keywords = [
   "translate",
 ]
 license = { text = "MIT" }
-authors = [
-  { name = "eggplants", email = "w10776e8w@yahoo.co.jp" },
-]
+authors = [ { name = "eggplants", email = "w10776e8w@yahoo.co.jp" } ]
 requires-python = ">=3.12,<4"
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -27,33 +22,40 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Typing :: Typed",
 ]
+dynamic = [ "version" ]
 dependencies = [
   "pysubs2>=1.8,<2",
   "translatepy>=2.3,<3",
 ]
+
 urls.Repository = "https://github.com/eggplants/subt"
 scripts.subt = "subt.main:main"
 
-[tool.poetry]
-requires-poetry = ">=2.0"
-packages = [
-  { include = "subt" },
+[dependency-groups]
+dev = [
+  "mypy>=1.11,<2",
+  "pre-commit>=3.7,<5",
+  "pytest>=8.3.2,<9",
+  "pytest-cov>=5,<7",
+  "taskipy>=1.13,<2",
 ]
+docs = [ "pdoc" ]
 
-[tool.poetry.group.dev.dependencies]
-pre-commit = ">=3.7,<5.0"
-mypy = "^1.11.0"
-pytest = "^8.3.2"
-pytest-cov = ">=5,<7"
-taskipy = "^1.13.0"
+[tool.hatch.version]
+# tool.hatch.version.source is not listed in official schema.
+# https://github.com/ninoseki/uv-dynamic-versioning/issues/21
+source = "uv-dynamic-versioning"
 
-[tool.poetry.requires-plugins]
-poetry-plugin-shell = ">=1.0"
+[tool.hatch.build.targets.sdist]
+include = [ "subt" ]
 
-[tool.black]
-target-version = [ "py312" ]
+[tool.hatch.build.targets.wheel]
+include = [ "subt" ]
 
 [tool.ruff]
+line-length = 120
+format.indent-style = "space"
+format.quote-style = "double"
 lint.select = [ "ALL" ]
 lint.ignore = [
   "D211", # No blank lines allowed before class docstring
@@ -90,8 +92,19 @@ show_error_context = true
 pythonVersion = "3.12"
 typeCheckingMode = "strict"
 
+[tool.uv]
+default-groups = [
+  "dev",
+  "docs",
+]
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "semver"
+
 [tool.taskipy.tasks]
 test = "pytest --cov=subt --cov-report=term"
 "test:ci" = "task test --cov-report=xml:cov.xml"
 lint = "pre-commit run -a"
 profile = "python -m cProfile"
+gendoc = "pdoc subt -o ./docs --docformat google"
