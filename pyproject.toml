@@ -36,8 +36,8 @@ scripts.subt = "subt.main:main"
 dev = [
   "mypy>=1.11,<2",
   "pre-commit>=3.7,<5",
-  "pytest>=8.3.2,<9",
-  "pytest-cov>=5,<7",
+  "pytest>=8.3.2,<10",
+  "pytest-cov>=5,<8",
   "taskipy>=1.13,<2",
 ]
 docs = [ "pdoc" ]
