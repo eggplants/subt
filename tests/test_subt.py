@@ -1,5 +1,7 @@
+from collections.abc import Generator
 from pathlib import Path
 from textwrap import dedent
+from typing import Any
 
 import _pytest.capture
 import pytest
@@ -10,8 +12,7 @@ FIXTURES_PATH = Path(__file__).parent / "fixtures"
 
 
 @pytest.fixture(autouse=True)
-def _clean_generated_file() -> None:
-
+def _clean_generated_file() -> Generator[Any, Any, Any]:
     yield
 
     for srt_file in Path.cwd().glob("*.translated.srt"):

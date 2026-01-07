@@ -49,7 +49,7 @@ def __get_services() -> tuple[str, ...]:
 
 
 def __get_languages() -> tuple[str, ...]:
-    return tuple(lang["2"] for lang in language.LANGUAGE_DATA.values() if "2" in lang)
+    return tuple(str(lang["2"]) for lang in language.LANGUAGE_DATA.values() if "2" in lang)
 
 
 def __parse_args(test_args: list[str] | None = None) -> argparse.Namespace:
