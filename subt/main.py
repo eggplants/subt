@@ -11,8 +11,8 @@ from importlib import metadata
 from pathlib import Path
 
 import pysubs2
-from translatepy import language  # type: ignore[import-untyped]
-from translatepy.translators import (  # type: ignore[import-untyped]
+from translatepy import language
+from translatepy.translators import (
     BingTranslate,
     DeeplTranslate,
     GoogleTranslate,
