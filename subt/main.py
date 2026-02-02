@@ -93,7 +93,7 @@ def __parse_args(test_args: list[str] | None = None) -> argparse.Namespace:
         action="version",
         version=f"{package_info.get('Name')} {package_info.get('Version')}",
     )
-    if test_args:
+    if test_args is not None:
         return parser.parse_args(test_args)
     return parser.parse_args()
 
