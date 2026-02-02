@@ -60,10 +60,13 @@ def test_translate(capsys: _pytest.capture.CaptureFixture, monkeypatch: pytest.M
     }
 
     # Create a mock translator
-    mock_result = MagicMock()
-    
     def mock_translate(text: str, dest: str, source: str = "auto") -> MagicMock:
+        # Create a new MagicMock instance for each translation call
+        mock_result = MagicMock()
         mock_result.result = translations.get(text, text)
+        # Verify expected parameters
+        assert dest == "ja"
+        assert source == "auto"
         return mock_result
 
     mock_translator_instance = MagicMock()
