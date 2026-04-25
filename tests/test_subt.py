@@ -1,8 +1,8 @@
 from collections.abc import Generator
 from pathlib import Path
 from textwrap import dedent
-from typing import Any
-from unittest.mock import MagicMock, patch
+from typing import Any, cast
+from unittest.mock import MagicMock
 
 import _pytest.capture
 import pytest
@@ -71,16 +71,17 @@ def test_translate(capsys: _pytest.capture.CaptureFixture, monkeypatch: pytest.M
 
     mock_translator_instance = MagicMock()
     mock_translator_instance.translate = mock_translate
-    
+
     # Create a mock translator class that returns our instance
     mock_translator_class = MagicMock(return_value=mock_translator_instance)
 
     # Use monkeypatch to replace GoogleTranslate in the __TRANSLATORS dictionary
-    import subt.main
-    translators_copy = subt.main.__TRANSLATORS.copy()
-    translators_copy["google"] = mock_translator_class
+    import subt.main  # noqa: PLC0415
+
+    translators_copy = subt.main.__TRANSLATORS.copy()  # noqa: SLF001
+    translators_copy["google"] = cast("Any", mock_translator_class)
     monkeypatch.setattr("subt.main.__TRANSLATORS", translators_copy)
-    
+
     main([str(FIXTURES_PATH / "zoo.srt"), "-S", "google", "-d", "ja"])
 
     captured = capsys.readouterr()

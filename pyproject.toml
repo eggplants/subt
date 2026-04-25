@@ -10,7 +10,7 @@ keywords = [
   "subtitle",
   "translate",
 ]
-license = { text = "MIT" }
+license = "MIT"
 authors = [ { name = "eggplants", email = "w10776e8w@yahoo.co.jp" } ]
 requires-python = ">=3.12,<4"
 classifiers = [
