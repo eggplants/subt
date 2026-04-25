@@ -28,7 +28,6 @@ dependencies = [
   "pysubs2>=1.8,<2",
   "translatepy>=2.3,<3",
 ]
-
 urls.Repository = "https://github.com/eggplants/subt"
 scripts.subt = "subt.main:main"
 
@@ -44,22 +43,18 @@ docs = [
   "pdoc>=16",
 ]
 
-[tool.hatch.version]
-source = "uv-dynamic-versioning"
-
-[tool.hatch.build.targets.sdist]
-include = [ "subt" ]
-
-[tool.hatch.build.targets.wheel]
-include = [ "subt" ]
+[tool.hatch]
+build.targets.sdist.include = [ "subt" ]
+build.targets.wheel.include = [ "subt" ]
+version.source = "uv-dynamic-versioning"
 
 [tool.uv]
-preview = true
 default-groups = [
   "dev",
   "docs",
 ]
 exclude-newer = "P7D"
+preview = true
 
 [tool.ruff]
 line-length = 120
