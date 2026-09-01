@@ -7,8 +7,14 @@ name = "subt"
 description = "Translate a subtitle file"
 readme = "README.md"
 keywords = [
+  "ass",
+  "cli",
+  "srt",
   "subtitle",
   "translate",
+  "translation",
+  "translator",
+  "video",
 ]
 license = "MIT"
 authors = [ { name = "eggplants", email = "w10776e8w@yahoo.co.jp" } ]
@@ -16,11 +22,15 @@ requires-python = ">=3.12,<4"
 classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Text Processing :: Linguistic",
+  "Topic :: Utilities",
   "Typing :: Typed",
 ]
 dynamic = [ "version" ]
@@ -28,6 +38,8 @@ dependencies = [
   "pysubs2>=1.8,<2",
   "translatepy>=2.3,<3",
 ]
+urls.Documentation = "https://egpl.dev/subt/"
+urls.Issues = "https://github.com/eggplants/subt/issues"
 urls.Repository = "https://github.com/eggplants/subt"
 scripts.subt = "subt.main:main"
 
