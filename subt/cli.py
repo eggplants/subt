@@ -119,5 +119,5 @@ def main(test_args: list[str] | None = None) -> None:
 
 __all__ = tuple("main")
 
-if __file__ == "__main__":
+if __name__ == "__main__":
     main()

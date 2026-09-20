@@ -41,7 +41,7 @@ dependencies = [
 urls.Documentation = "https://egpl.dev/subt/"
 urls.Issues = "https://github.com/eggplants/subt/issues"
 urls.Repository = "https://github.com/eggplants/subt"
-scripts.subt = "subt.main:main"
+scripts.subt = "subt.cli:main"
 
 [dependency-groups]
 dev = [
@@ -80,7 +80,7 @@ lint.ignore = [
   "D211",   # No blank lines allowed before class docstring
   "D213",   # Multi-line docstring summary should start at the second line
 ]
-lint.per-file-ignores."main.py" = [
+lint.per-file-ignores."subt/cli.py" = [
   "T201", # `print` found
 ]
 lint.per-file-ignores."tests/*" = [

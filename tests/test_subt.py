@@ -7,7 +7,7 @@ from unittest.mock import MagicMock
 import _pytest.capture
 import pytest
 
-from subt.main import main
+from subt.cli import main
 
 FIXTURES_PATH = Path(__file__).parent / "fixtures"
 
@@ -76,11 +76,11 @@ def test_translate(capsys: _pytest.capture.CaptureFixture, monkeypatch: pytest.M
     mock_translator_class = MagicMock(return_value=mock_translator_instance)
 
     # Use monkeypatch to replace GoogleTranslate in the __TRANSLATORS dictionary
-    import subt.main  # noqa: PLC0415
+    import subt.cli  # noqa: PLC0415
 
-    translators_copy = subt.main.__TRANSLATORS.copy()  # noqa: SLF001
+    translators_copy = subt.cli.__TRANSLATORS.copy()  # noqa: SLF001
     translators_copy["google"] = cast("Any", mock_translator_class)
-    monkeypatch.setattr("subt.main.__TRANSLATORS", translators_copy)
+    monkeypatch.setattr("subt.cli.__TRANSLATORS", translators_copy)
 
     main([str(FIXTURES_PATH / "zoo.srt"), "-S", "google", "-d", "ja"])
 
